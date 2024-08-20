@@ -3,7 +3,7 @@
 class App {
 
     private $controller='Home';
-    private $method='index';
+    private $method='add';
 
     private function splitURL(){
         $URL = $_GET['url'] ?? 'home';
@@ -19,7 +19,6 @@ class App {
         if(file_exists($filename)){
             require $filename;
             $this->controller=ucfirst($URL[0]);
-            $this->method=$URL[1];
         }else{
             $filename='../app/controllers/_404.php'; 
             require $filename;
